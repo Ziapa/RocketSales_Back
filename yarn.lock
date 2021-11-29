@@ -27,10 +27,10 @@ accepts@~1.3.7:
     mime-types "~2.1.24"
     negotiator "0.6.2"
 
-amocrm-js@^2.0.9:
-  version "2.0.9"
-  resolved "https://registry.yarnpkg.com/amocrm-js/-/amocrm-js-2.0.9.tgz#40a4b64d941f0d0ced26991823b16a8036ec5298"
-  integrity sha512-9YkbzEkoHFZ+M7/psDEXejwXNJWWO1QYINyPU5JdpHNYAmY7hC4lUKnANbO04ARMbZIzWyjLxM51pIq0svMq/Q==
+amocrm-js@^1.0.18:
+  version "1.0.18"
+  resolved "https://registry.yarnpkg.com/amocrm-js/-/amocrm-js-1.0.18.tgz#640b4078f6dbeb23845b6274d5634a848958f0a2"
+  integrity sha512-1hGQLIu4gwbkjJLzG7JTJ/SB7Gt6F3kFXdjMVPC4lxJNXG/NtURSgk9sto3zMDfFAVNPwKRs6lU+KPnXLvav9w==
   dependencies:
     promise-queue "^2.2.5"
     qs "^6.5.2"
