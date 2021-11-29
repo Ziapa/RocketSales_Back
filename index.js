@@ -13,22 +13,26 @@ const crm = new AmoCRM({
         client_id: 'ea6e99be-6e54-401c-98b3-123169b5345c',
         client_secret: 'mj21Q5oHVoWy6jpxlu3PwFl0gEXbVKNibAUUvm7v5gqDju2xJsTZPJpxyn1ABXng',
         redirect_uri: 'https://0cd3-5-145-252-223.ngrok.io',
-        code: "def50200e30fb93b173ef18ab012e5b5d152a72095bba0200c4d63c39ca156a0db039a9ea0bb697f4b3630a757263899fdfdfc3a38e5df6de8a6cddb1791ebc380c46d9fb6573c86bc373129ff1de6261c1e8456072ea1b1bc2e66e076476cff4addb7421bc8806fa33f142f793a7530b521d6383e1f9cb1ced524dfed2d53831113066a681cffca26843a5e570d527f22e6fed17abdc37f14b66627d1622508148a2b49205abfe42ddedab5cf88eb682dca61671f70a816ade1edc2206c89953322ec26c8ac147fd872aa5d57e4f274312228cd2321fe96202fbe2f844aa8ccd22b79954c228dd09011ae924cf66fe60012ee8e970aacce39535216155a539bfafdf2b45df76a508296791471fe1f2e3e9d72fd9d74e754fc6d79fdd34eb709ba48da4aa06adea9f84dfd406fe5dea298dfb9cbfe9b4b026969fbef024abbf587856cff27ff3946a12488cc7e30289c947cba6465fee21f85add8e06310e9c2e4f05a14bd891481dd22a905669187a98ec1135316ed650ad71b106cc89f83818c25b62628d4ce2ccad7447019fe909a416c1b39d189242604461c87de6f42624f620ef4027d45beb39556c2c03cef5a1b741325c1f18fe35408394f8c51a4c2c376826f6db08445c66b439f09"
+        code: "def502008ed559f9278615436c69d61af6a0c8f5042edb3640f800bc623fb1a7142b2cb520f62dcd35d4005303f447b88ca106e4ad15ad398a67ca9328721dd844458f067b009f5305e43ca8e4ecddf0e88cefb174a0a08488edd31efa5fa925303d86bdaf34ca95c496ea7feeb0d7cb86ba999bd9013c910814cfa7d9b9243b319d06f64e3f67cd5a78bdd79aa315c850974677a91fde6219819acacc85f48882e29e3a507747fddc4a4c0c6f2ded5ab45fdd04e56de97c6dd6d519ba84826c9ad122211a781be4011954303295be0f6ff7d511123592f1c215c54ad161f58040d17ae40c4c65bce7c6af4a5bdf639ad07695e892b7c9a0b9a348970bf5d3502a3bf196f5e6ee8a8bbf5ae7108a86c3ddef3643424b083c36cd8c58e6e1baf6df8fb0a9c53b92b24789aff80519e2d37c7727a341239f8059daceeae2e16f52735388905c76b3d2f3db7bac0db477ff50bb36708ca8c82f8c0a9fa94fc497e8192f0bdebe8229f5bfb739bc77dc63697b7a87faaf38b0907b1951ac2d9ae411b2061b75d274da658aeadfba62b7445b9c6c16da4b3668bbfb00b6dfab06add5d1790bdbc28f4e78d3052445194bcbfc79dc43bcfe7ee12e411ef004502e3968c2115215db68173e7f147e9eec"
     },
 
 });
 
 
 app.get("/", async (req, res) => {
-    const response = await crm.request('GET', '/api/v4/leads');
-
-    res.json(response.data)
+   return res.json("work")
 })
 
-app.get("/:id", async (req, res) => {
+app.get("/leads", async (req, res) => {
+    const response = await crm.request('GET', '/api/v4/leads');
+
+    return res.json(response.data)
+})
+
+app.get("/leads:id", async (req, res) => {
     const response = await crm.request('GET', `/api/v4/leads?query=${req.params.id}`);
 
-    res.json(response.data)
+    return res.json(response.data)
 })
 
 async function startApp() {
