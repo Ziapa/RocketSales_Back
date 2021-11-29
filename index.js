@@ -20,12 +20,16 @@ const crm = new AmoCRM({
 
 
 app.get("/", async (req, res) => {
+    res.json("work)
+})
+
+app.get("/leads", async (req, res) => {
     const response = await crm.request('GET', '/api/v4/leads');
 
     res.json(response.data)
 })
 
-app.get("/:id", async (req, res) => {
+app.get("/leads:id", async (req, res) => {
     const response = await crm.request('GET', `/api/v4/leads?query=${req.params.id}`);
 
     res.json(response.data)
