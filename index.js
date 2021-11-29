@@ -26,13 +26,13 @@ app.get("/", async (req, res) => {
 app.get("/leads", async (req, res) => {
     const response = await crm.request('GET', '/api/v4/leads');
 
-    return res.json(response.data)
+    return res.json(response)
 })
 
 app.get("/leads/:id", async (req, res) => {
     const response = await crm.request('GET', `/api/v4/leads?query=${req.params.id}`);
 
-    return res.json(response.data)
+    return res.json(response)
 })
 
 async function startApp() {
