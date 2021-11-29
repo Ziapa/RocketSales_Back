@@ -8,7 +8,7 @@
   "author": "Ziapa",
   "license": "MIT",
   "dependencies": {
-    "amocrm-js": "^1.0.18",
+    "amocrm-js": "^2.0.9",
     "cors": "^2.8.5",
     "express": "^4.17.1"
   },
