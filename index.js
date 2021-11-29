@@ -20,7 +20,7 @@ const crm = new AmoCRM({
 
 
 app.get("/", async (req, res) => {
-    res.json("work)
+    res.json("work")
 })
 
 app.get("/leads", async (req, res) => {
