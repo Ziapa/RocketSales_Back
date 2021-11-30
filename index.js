@@ -37,6 +37,18 @@ app.get("/leads/:id", async (req, res) => {
     return res.json(response.data)
 })
 
+app.get("/contacts/", async (req, res) => {
+    const response = await crm.request('GET', `/api/v4/contacts`);
+
+    return res.json(response.data)
+})
+
+app.get("/contacts/:id", async (req, res) => {
+    const response = await crm.request('GET', `/api/v4/contacts?query=${req.params.id}`);
+
+    return res.json(response.data)
+})
+
 async function startApp() {
     try {
         app.listen(PORT, () => {
