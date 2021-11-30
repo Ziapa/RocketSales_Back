@@ -44,7 +44,7 @@ app.get("/contacts/", async (req, res) => {
 })
 
 app.get("/contacts/:id", async (req, res) => {
-    const response = await crm.request('GET', `/api/v4/contacts?query=${req.params.id}`);
+    const response = await crm.request('GET', `/api/v4/contacts?with=${req.params.id}`);
 
     return res.json(response.data)
 })
