@@ -19,6 +19,8 @@ const crm = new AmoCRM({
 });
 
 
+
+
 app.get("/", async (req, res) => {
    return res.json("work")
 })
@@ -26,13 +28,13 @@ app.get("/", async (req, res) => {
 app.get("/leads", async (req, res) => {
     const response = await crm.request('GET', '/api/v4/leads');
 
-    return res.json(response)
+    return res.json(response.data)
 })
 
 app.get("/leads/:id", async (req, res) => {
     const response = await crm.request('GET', `/api/v4/leads?query=${req.params.id}`);
 
-    return res.json(response)
+    return res.json(response.data)
 })
 
 async function startApp() {
