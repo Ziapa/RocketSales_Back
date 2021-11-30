@@ -50,14 +50,14 @@ app.get("/contacts/:id", async (req, res) => {
 })
 
 app.get("/pipelines", async (req, res) => {
-    const response = await crm.request('GET', `/api/v4/pipelines`);
+    const response = await crm.request('GET', `/api/v4/leads/pipelines`);
 
     return res.json(response.data)
 })
 
 
 app.get("/pipelines/:id", async (req, res) => {
-    const response = await crm.request('GET', `/api/v4/pipelines/${req.params.id}`);
+    const response = await crm.request('GET', `/api/v4/leads/pipelines/${req.params.id}`);
 
     return res.json(response.data)
 })
