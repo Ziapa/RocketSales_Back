@@ -42,30 +42,19 @@ app.get("/contacts/", async (req, res) => {
 
     return res.json(response.data)
 })
-app.get("/users", async (req, res) => {
-    const response = await crm.request('GET', `/api/v4/users`);
-
-    return res.json(response.data)
-})
-
-
-app.get("/users", async (req, res) => {
-    const response = await crm.request('GET', `/api/v4/users`);
-
-    return res.json(response.data)
-})
-
-app.get("/users", async (req, res) => {
-    const response = await crm.request('GET', `/api/v4/users`);
-
-    return res.json(response.data)
-})
 
 app.get("/contacts/:id", async (req, res) => {
     const response = await crm.request('GET', `/api/v4/contacts/${req.params.id}`);
 
     return res.json(response.data)
 })
+
+app.get("/users", async (req, res) => {
+    const response = await crm.request('GET', `/api/v4/users`);
+
+    return res.json(response.data)
+})
+
 
 app.get("/pipelines", async (req, res) => {
     const response = await crm.request('GET', `/api/v4/leads/pipelines`);
@@ -80,11 +69,6 @@ app.get("/statuses/:id", async (req, res) => {
     return res.json(response.data)
 })
 
-app.get("/statuses/:id:pipeline_id", async (req, res) => {
-    const response = await crm.request('GET', `/api/v4/leads/pipelines/${req.params.pipeline_id}/statuses/${req.params.id}`);
-
-    return res.json(response.data)
-})
 
 async function startApp() {
     try {
