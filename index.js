@@ -7,7 +7,7 @@ const cors = require('cors')
 const app = express()
 app.use(cors())
 
-const crm = new AmoCRM({
+export const crm = new AmoCRM({
     domain: 'ziapa',
     auth: {
         client_id: 'ea6e99be-6e54-401c-98b3-123169b5345c',
@@ -26,7 +26,7 @@ app.get("/", async (req, res) => {
 })
 
 app.get("/leads", async (req, res) => {
-    const response = await crm.request('GET', '/api/v4/leads');
+    const response = await crm.request('GET', `/api/v4/leads`);
 
     return res.json(response.data)
 })
@@ -48,6 +48,12 @@ app.get("/users", async (req, res) => {
     return res.json(response.data)
 })
 
+app.get("/users/", async (req, res) => {
+    const response = await crm.request('GET', `/api/v4/users`);
+
+    return res.json(response.data)
+})
+
 app.get("/contacts/:id", async (req, res) => {
     const response = await crm.request('GET', `/api/v4/contacts/${req.params.id}`);
 
@@ -63,6 +69,12 @@ app.get("/pipelines", async (req, res) => {
 
 app.get("/statuses/:id", async (req, res) => {
     const response = await crm.request('GET', `/api/v4/leads/pipelines/${req.params.id}/statuses`);
+
+    return res.json(response.data)
+})
+
+app.get("/statuses/:id:pipeline_id", async (req, res) => {
+    const response = await crm.request('GET', `/api/v4/leads/pipelines/${req.params.pipeline_id}/statuses/${req.params.id}`);
 
     return res.json(response.data)
 })
