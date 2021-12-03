@@ -49,6 +49,12 @@ app.get("/users", async (req, res) => {
 })
 
 
+app.get("/users", async (req, res) => {
+    const response = await crm.request('GET', `/api/v4/users`);
+
+    return res.json(response.data)
+})
+
 app.get("/contacts/:id", async (req, res) => {
     const response = await crm.request('GET', `/api/v4/contacts/${req.params.id}`);
 
