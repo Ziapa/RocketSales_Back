@@ -61,12 +61,20 @@ app.get("/pipelines", async (req, res) => {
     return res.json(response.data)
 })
 
+app.get("/statuses", async (req, res) => {
+    const response = await crm.request('GET', `/api/v4/leads/statuses`);
+
+    return res.json(response.data)
+})
 
 app.get("/pipelines/:id", async (req, res) => {
     const response = await crm.request('GET', `/api/v4/leads/pipelines/${req.params.id}`);
 
     return res.json(response.data)
 })
+
+
+
 
 async function startApp() {
     try {
